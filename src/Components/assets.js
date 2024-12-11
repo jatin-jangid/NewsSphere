@@ -1,0 +1,1 @@
+export const newsFallbackImage=require("../assets/newsFallbackImage.png")
