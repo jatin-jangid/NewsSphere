@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { newsFallbackImage } from "./assets.js";
+import { noImageAvailable } from "./assets.js";
 export class NewsItem extends Component {
   render() {
     let { title , description, imageUrl, newsUrl, author, publishedAt, source } = this.props;
@@ -10,13 +10,13 @@ export class NewsItem extends Component {
             {source}
             <span className="visually-hidden">unread messages</span>
           </span>
-          <img src={imageUrl === "" ? newsFallbackImage : imageUrl} className="card-img-top" alt="..." />
+          <img src={imageUrl ? imageUrl : noImageAvailable} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}...</h5>
             <p className="card-text">
               {description}...
             </p>
-            <p className="card-text"><small className="text-body-secondary">By {author} on {new Date(publishedAt).toDateString()}</small></p>
+            <p className="card-text"><small className="text-body-secondary">By {author ? author : "Unknown"} on {new Date(publishedAt).toDateString()}</small></p>
             <a href={newsUrl} rel="noreferrer" target="_blank" className="btn btn-sm btn-primary">
               Read More
             </a>
